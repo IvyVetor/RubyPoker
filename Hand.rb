@@ -1,6 +1,7 @@
 require_relative 'Card'
 
 class Hand
+  attr_accessor :cards
 
   def initialize(cards)
     @cards = cards
@@ -14,7 +15,6 @@ class Hand
 
     # Evaluate from highest possible, those of same suits
     if same_suit?
-
       return "Royal flush" if royal_flush?
 
       # Next valuable hand -> Straight flush
@@ -50,20 +50,20 @@ class Hand
   end
 end
 
-card1 = Card.new("spade", 10)
-card2 = Card.new("spade", 9)
-card3 = Card.new("spade", 8)
-card4 = Card.new("spade", 7)
-card5 = Card.new("spade", 6)
-
-handy1 = Hand.new([card1, card2, card3, card4, card5])
-puts "Poker hand straight flush: #{handy1.score}" # should return straight flush
-
-card6 = Card.new("spade", 10)
-card7 = Card.new("spade", 9)
-card8 = Card.new("spade", 8)
-card9 = Card.new("spade", 7)
-card10 = Card.new("heart", 6)
-
-handy2 = Hand.new([card6, card7, card8, card9, card10])
-puts "Poker hand straight flush: #{handy2.score}" # should return No Poker Hand
+# card1 = Card.new("spade", 10)
+# card2 = Card.new("spade", 9)
+# card3 = Card.new("spade", 8)
+# card4 = Card.new("spade", 7)
+# card5 = Card.new("spade", 6)
+#
+# handy1 = Hand.new([card1, card2, card3, card4, card5])
+# puts "Poker hand straight flush: #{handy1.score}" # should return straight flush
+#
+# card6 = Card.new("spade", 10)
+# card7 = Card.new("spade", 9)
+# card8 = Card.new("spade", 8)
+# card9 = Card.new("spade", 7)
+# card10 = Card.new("heart", 6)
+#
+# handy2 = Hand.new([card6, card7, card8, card9, card10])
+# puts "Poker hand straight flush: #{handy2.score}" # should return No Poker Hand

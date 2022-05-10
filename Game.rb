@@ -1,4 +1,5 @@
 require_relative 'Card'
+require_relative 'Hand'
 
 class Poker
 
@@ -21,9 +22,10 @@ class Poker
   def round
     hand = Hand.new(@deck.sample(5))
     poker_hand = hand.score
-    poker_hand
+    puts poker_hand
   end
 
 end
 
 new_poker_game = Poker.new
+new_poker_game.round
