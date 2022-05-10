@@ -63,6 +63,7 @@ class Hand
   # ideally this would be a method in the Card class that could quickly take a hand and compare suits
   def same_suit?
     suit_bool = []
+    puts "Cards are: #{@cards}\n\tFirst one is #{@cards.first}"
     card_suit = @cards.first.suit
     @cards.each { |card| card.suit == card_suit ? suit_bool << true : suit_bool << false }
     suit_bool.all?(true)
