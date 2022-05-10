@@ -21,6 +21,9 @@ class Hand
       return "Straight flush" if straight_flush?
     end
 
+    # four of a kind
+    return "4 of a kind" if four_kind?
+
     return "No poker hand"
   end
 
@@ -39,6 +42,22 @@ class Hand
       index += 1
     end
     bool_map.all?(true)
+  end
+
+  # we could re-use this method for finding threes and twos
+  def four_kind?
+    range = (2..14).to_a
+    track_number = {}
+    range.each do |num|
+      track_number[num] = []
+    end
+    card_numbers = []
+    @cards.each { |card| card_numbers << card.value}
+
+    card_numbers.each { |num| track_number[num] << num }
+
+    # stopped here at 2 hour mark
+    track_number.values.any? { |x| x.count == 4}
   end
 
   # ideally this would be a method in the Card class that could quickly take a hand and compare suits
